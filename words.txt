@@ -1,1 +1,8 @@
-
+alien
+crane
+yield
+chess
+slime
+honey
+plane
+shark
