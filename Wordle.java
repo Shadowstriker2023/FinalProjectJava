@@ -23,5 +23,8 @@ if (words.isEmpty()) {
         System.out.println("+ = letter not in word");
         System.out.println();
     }
+    for(int attempt = 1; attempt <= maxGuesses; attempt++
+        System.out.println("Guess " + attempt + "/" + maxGuesses + ": ");
+        String guess = scanner.nextLine().trim().toLowerCase();
 }
 
