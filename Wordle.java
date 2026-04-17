@@ -22,4 +22,6 @@ if (words.isEmpty()) {
         System.out.println("* = correct letter, wrong position");
         System.out.println("+ = letter not in word");
         System.out.println();
-}
+        }
+    }
+
