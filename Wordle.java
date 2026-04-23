@@ -1,30 +1,49 @@
 import java.io.*;
 import java.util.*;
 
-public class Wordle{
+public class Wordle {
+    public static void main(String[] args) throws FileNotFoundException {
 
-    public static void main(String[] args) throws IOException {
-        List<String> words = loadWords("words.txt");
-if (words.isEmpty()) {
-            System.out.println("Error: No valid words found in words.txt");
-            return;
+        ArrayList<String> words = new ArrayList<>();
+        Scanner file = new Scanner(new File("words.txt"));
+
+        while (file.hasNext()) {
+            String word = file.next().toLowerCase();
+            if (word.length() == 5) {
+                words.add(word);
+            }
         }
+        file.close();
 
         Random random = new Random();
         String target = words.get(random.nextInt(words.size()));
+
         Scanner scanner = new Scanner(System.in);
-        int maxGuesses = 6;
-        boolean won = false;
 
-        System.out.println("=== WORDLE ===");
-        System.out.println("Guess the 5-letter word. You have " + maxGuesses + " attempts.");
-        System.out.println("X = correct letter & position");
-        System.out.println("* = correct letter, wrong position");
-        System.out.println("+ = letter not in word");
-        System.out.println();
+        System.out.println("Guess the 5 letter word!");
+
+        for (int i = 1; i <= 6; i++) {
+            System.out.print("Guess " + i + ": ");
+            String guess = scanner.nextLine().toLowerCase();
+
+            if (guess.equals(target)) {
+                System.out.println("You win!");
+                return;
+            }
+
+            for (int j = 0; j < 5; j++) {
+                if (guess.charAt(j) == target.charAt(j)) {
+                    System.out.print("X");
+                } else if (target.contains("" + guess.charAt(j))) {
+                    System.out.print("*");
+                } else {
+                    System.out.print("+");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("You lost! The word was: " + target);
+        scanner.close();
     }
-    for(int attempt = 1; attempt <= maxGuesses; attempt++
-        System.out.println("Guess " + attempt + "/" + maxGuesses + ": ");
-        String guess = scanner.nextLine().trim().toLowerCase();
 }
-
