@@ -21,6 +21,9 @@ public class Wordle {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Guess the 5 letter word!");
+        System.out.println("X means correct letter in correct position");
+        System.out.println("* means correct letter in wrong position");
+        System.out.println("+ means incorrect letter");
 
         for (int i = 1; i <= 6; i++) {
             System.out.print("Guess " + i + ": ");
