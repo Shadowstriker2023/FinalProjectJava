@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 
 public class Wordle {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws FileNotFoundException {
 
         ArrayList<String> words = new ArrayList<>();
         Scanner file = new Scanner(new File("words.txt"));
